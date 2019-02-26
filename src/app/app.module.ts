@@ -16,6 +16,7 @@ import { HeroesModule } from './heroes/heroes.module';
   imports: [
     BrowserModule,
     HeroesModule,
+    // AppRountingModule must be put below child module
     AppRoutingModule,
   ],
   providers: [],
