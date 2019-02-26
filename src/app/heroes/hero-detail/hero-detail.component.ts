@@ -24,5 +24,8 @@ export class HeroDetailComponent implements OnInit {
         this.service.getHero(params.get('id')))
     );
   }
-
+  gotoHeroes() {
+    let heroId = this.hero ? this.hero.id : null;
+    this.router.navigate(['/heroes']);
+  }
 }
