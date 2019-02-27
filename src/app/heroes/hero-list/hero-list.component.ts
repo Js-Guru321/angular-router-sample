@@ -4,7 +4,6 @@ import { HeroService } from '../hero.service';
 import { Observable } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
-import { PARAMETERS } from '@angular/core/src/util/decorators';
 
 
 @Component({
