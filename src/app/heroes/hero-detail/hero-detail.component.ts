@@ -11,7 +11,6 @@ import { switchMap } from 'rxjs/operators';
 })
 
 export class HeroDetailComponent implements OnInit {
-  @Input() hero: Hero;
   hero$: any;
   constructor(
     private route: ActivatedRoute,
@@ -24,8 +23,8 @@ export class HeroDetailComponent implements OnInit {
         this.service.getHero(params.get('id')))
     );
   }
-  gotoHeroes() {
-    let heroId = this.hero ? this.hero.id : null;
+  gotoHeroes(hero: Hero) {
+    let heroId = hero ? hero.id : null;
     this.router.navigate(['/heroes', {id: heroId, foo: 'foo'}]);
   }
 }
