@@ -2,23 +2,23 @@ import { Injectable } from '@angular/core';
 
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { crisis } from './crisis';
+import { Crisis } from './crisis';
 import { CRISES } from './mock-crises';
 import { MessageService } from '../message.service';
 
 @Injectable({
   providedIn: 'root',
 })
-export class crisisService {
+export class CrisisService {
   constructor(private messageService: MessageService) { }
-  getCRISES(): Observable<crisis[]> {
+  getCrises(): Observable<Crisis[]> {
     // TODO: send the message _after_ fetching the CRISES
-    this.messageService.add('crisisService: fetched CRISES');
+    this.messageService.add('CrisisService: fetched CRISES');
     return of(CRISES);
   }
-  getcrisis( id: number | string ): Observable<crisis> {
-    return this.getCRISES().pipe(
-      map((CRISES: crisis[]) => CRISES.find( crisis => crisis.id === +id ))
+  getCrisis( id: number | string ): Observable<Crisis> {
+    return this.getCrises().pipe(
+      map((crises: Crisis[]) => crises.find( crisis => crisis.id === +id ))
     );
   }
 }
