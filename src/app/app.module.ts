@@ -11,13 +11,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { HeroesModule } from './heroes/heroes.module';
 import { CrisisCenterModule } from './crisis-center/crisis-center.module';
+import { ComposeMessageComponent } from './compose-message/compose-message.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ComposeMessageComponent
   ],
   imports: [
     CommonModule,
