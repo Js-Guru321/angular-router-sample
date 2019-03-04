@@ -16,6 +16,7 @@ export class CrisisService {
     return of(CRISES);
   }
   getCrisis(id: number | string): Observable<Crisis>{
+    console.log(id);
     return this.getCrises().pipe(
       map((crises: Crisis[]) => crises.find( crisis => crisis.id == +id ))
     );

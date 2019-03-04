@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Crisis } from '../crisis';
 import { ActivatedRoute, Router, ParamMap } from '@angular/router';
 import { CrisisService } from '../crisis.service';
 import { switchMap } from 'rxjs/operators';
-import { Crisis } from '../crisis';
-import { async } from 'q';
 
 @Component({
   selector: 'app-crisis-detail',
@@ -21,11 +20,8 @@ export class CrisisDetailComponent implements OnInit {
 
   ngOnInit() {
     this.crisis$ = this.route.paramMap.pipe(
-      switchMap(
-        (params: ParamMap) => {
-          return this.service.getCrisis( params.get('id'));
-        } 
-      )
+      switchMap((params: ParamMap) => 
+        this.service.getCrisis(params.get('id')))
     );
   }
 
