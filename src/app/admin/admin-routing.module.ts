@@ -12,9 +12,15 @@ const routes: Routes = [
     component: AdminComponent,
     canActivate: [AuthGuard],
     children: [
-      { path: 'crises', component: ManageCrisesComponent },
-      { path: 'heroes', component: ManageHeroesComponent },
-      { path: '', component: AdminDashboardComponent }
+      {
+        path: '',
+        canActivateChild: [AuthGuard],
+        children: [
+          { path: 'crises', component: ManageCrisesComponent },
+          { path: 'heroes', component: ManageHeroesComponent },
+          { path: '', component: AdminDashboardComponent }
+        ]
+      }
     ]
   }
 ];
